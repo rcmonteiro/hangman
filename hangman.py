@@ -63,7 +63,7 @@ class Hangman(object):
 
     # Compute matches
     def guessMatch(self, letter):
-        wleft = 0
+        missing = 0
 
         for i, val in enumerate(self.wordMatches):
 
@@ -71,9 +71,9 @@ class Hangman(object):
                 self.wordMatches[i][1] = self.wordMatches[i][0]
 
             if self.wordMatches[i][1] == "_":
-                wleft += 1
+                missing += 1
 
-        if wleft == 0:
+        if missing == 0:
             self.win = True
 
         self.renderBoard()
